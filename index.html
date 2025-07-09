@@ -2,25 +2,52 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Ruleta Simple</title>
+  <meta charset="UTF-8" />
+  <title>Asignador de Roles - Ruleta</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+    button {
+      padding: 15px 30px;
+      font-size: 18px;
+      cursor: pointer;
+    }
+    #rol {
+      margin-top: 30px;
+      font-size: 24px;
+      font-weight: bold;
+      color: #2c3e50;
+    }
+    #restantes {
+      margin-top: 10px;
+      color: #7f8c8d;
+    }
+  </style>
 </head>
 <body>
+  <h1>Asignador de Roles - Ruleta</h1>
+  <button onclick="asignarRol()">Asignar rol aleatorio</button>
+  <div id="rol"></div>
+  <div id="restantes"></div>
 
-<h2>Ruleta de Roles</h2>
-<button onclick="girar()">Girar</button>
-<p id="resultado"></p>
+  <script>
+    const roles = ["Inocente 1", "Inocente 2", "Inocente 3", "Asesino"];
 
-<script>
-  const roles = ["Inocente 1", "Inocente 2", "Inocente 3", "Asesino"];
-
-  function girar() {
-    const index = Math.floor(Math.random() * roles.length);
-    const rol = roles[index];
-    document.getElementById("resultado").innerText = "Tu rol es: " + rol;
-  }
-</script>
-
+    function asignarRol() {
+      if (roles.length === 0) {
+        document.getElementById('rol').textContent = "Todos los roles ya fueron asignados.";
+        document.getElementById('restantes').textContent = "";
+        return;
+      }
+      const indice = Math.floor(Math.random() * roles.length);
+      const rolAsignado = roles.splice(indice, 1)[0];
+      document.getElementById('rol').textContent = "Tu rol es: " + rolAsignado;
+      document.getElementById('restantes').textContent = "Roles restantes por asignar: " + roles.length;
+    }
+  </script>
 </body>
 </html>
 ```
