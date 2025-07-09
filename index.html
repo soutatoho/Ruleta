@@ -1,0 +1,33 @@
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ruleta Simple</title>
+</head>
+<body>
+
+<h2>Ruleta de Roles</h2>
+<button onclick="girar()">Girar</button>
+<p id="resultado"></p>
+
+<script>
+  const roles = ["Inocente 1", "Inocente 2", "Inocente 3", "Asesino"];
+
+  function girar() {
+    const index = Math.floor(Math.random() * roles.length);
+    const rol = roles[index];
+    document.getElementById("resultado").innerText = "Tu rol es: " + rol;
+  }
+</script>
+
+</body>
+</html>
+```
+
+Este archivo funciona 100% en GitHub Pages.  
+*Guarda como `index.html` y súbelo a la raíz del repo.*  
+Luego abre:  
+*https://soutatoho.github.io/Ruleta/*
+
+¿Quieres que luego le agregue animación o diseño visual?
